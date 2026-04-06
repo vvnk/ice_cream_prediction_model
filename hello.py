@@ -38,11 +38,11 @@ y_grid_pred = regressor.predict(X_grid.reshape(-1,1))
 # Plot
 plt.figure(figsize=(8, 5))
 
-# Training Points
-plt.scatter (X_train, y_train, color='green', label='Training Data', alpha=0.6)
+# Training Points 
+plt.scatter (X_train, y_train, color='green', label='Training Data (Predicted)', alpha=0.6)
 
-# Test Points
-plt.scatter(X_test, y_test, color='red', label='Test Data', s=50)
+# Test Points 
+plt.scatter(X_test, y_test, color='red', label='Test Data (Actual)', s=50)
 
 # Predicted Line
 plt.plot(X_grid, y_grid_pred, color='blue', label='Predicted', linewidth=2)
