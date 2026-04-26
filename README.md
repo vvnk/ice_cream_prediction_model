@@ -4,6 +4,7 @@ Hi! This is my first Sleepover project!!
 What your project is/does (and what it's called):
 - My project is called Icecream Revenue Random Forest Regressor
 - It uses the random forest machine learning model to analyze the number of icecream sales based on the temperature and make predictions
+- It asks the user to guess the revenue made from icecream sales at different temperatures and adds it to a plot graph
 
 Why you made your project:
 - I made this project because I am interested in using machine learning to visualize data

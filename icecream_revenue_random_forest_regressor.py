@@ -51,11 +51,44 @@ plt.plot(X_grid, y_grid_pred, color='blue', label='Predicted', linewidth=2)
 plt.title('Ice Cream Revenue Prediction (Random Forest Regression)', fontsize=14)
 plt.xlabel('Temperature', fontsize=12)
 plt.ylabel('Revenue', fontsize=12)
-plt.legend()
 plt.grid(True)
 plt.tight_layout()
+
+
+# User guessing the revenue for a given temperature section!
+temperatures = [10, 15, 20, 25, 30]
+X_user = np.array(temperatures).reshape(-1, 1)
+
+# Get guesses
+user_guesses = []
+print("\nGuess the icecream revenue for these temperatures in dollars:")
+
+for temp in temperatures:
+    guess = float(input(f"Enter your guess for {temp}°C: "))
+    user_guesses.append(guess)
+
+# Predict using the trained model
+model_preds = regressor.predict(X_user)
+
+df_user = pd.DataFrame({
+    'Temperature': temperatures,
+    'User Guess': user_guesses,
+    'Model Prediction': model_preds,
+})
+
+# User guesses
+plt.scatter(temperatures, user_guesses, color='purple', label='User Guess', s=80)
+
+# Model predictions at the same temperatures
+plt.scatter(temperatures, model_preds, color='orange', label='Model at Same Temps', s=80)
+
+print("\nComparison of User Guesses and Model Predictions:")
+print(df_user)
+
+# Show the legend
+plt.legend()
 plt.show()
 
 # Save the plot as an image
-plt.savefig("ice_cream_prediction.png")  # saves in your current folder
+plt.savefig("ice_cream_prediction.png")  
 print("Plot saved as ice_cream_prediction.png")
